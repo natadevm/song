@@ -73,11 +73,16 @@ export default function StatsPanel() {
         Statistics Dashboard
       </Typography>
       
-      <Grid container spacing={3} sx={{ mb: 4 }}>
+      <Box sx={{ 
+        display: 'grid', 
+        gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(4, 1fr)' }, 
+        gap: 3, 
+        mb: 4 
+      }}>
         {statCards.map((stat, index) => {
           const IconComponent = stat.icon;
           return (
-            <Grid item xs={6} sm={3} key={index}>
+            <Box key={index}>
               <StyledStatCard>
                 <CardContent sx={{ textAlign: 'center', py: 3 }}>
                   <Avatar 
@@ -100,13 +105,17 @@ export default function StatsPanel() {
                   </Typography>
                 </CardContent>
               </StyledStatCard>
-            </Grid>
+            </Box>
           );
         })}
-      </Grid>
+      </Box>
 
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={4}>
+      <Box sx={{ 
+        display: 'grid', 
+        gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, 
+        gap: 3 
+      }}>
+        <Box>
           <StyledCard>
             <CardContent>
               <Typography 
@@ -161,9 +170,9 @@ export default function StatsPanel() {
               </TableContainer>
             </CardContent>
           </StyledCard>
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} md={4}>
+        <Box>
           <StyledCard>
             <CardContent>
               <Typography 
@@ -218,9 +227,9 @@ export default function StatsPanel() {
               </TableContainer>
             </CardContent>
           </StyledCard>
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} md={4}>
+        <Box>
           <StyledCard>
             <CardContent>
               <Typography 
@@ -275,8 +284,8 @@ export default function StatsPanel() {
               </TableContainer>
             </CardContent>
           </StyledCard>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Box>
   );
 }

@@ -107,8 +107,17 @@ export default function SongFilter({ onFilterChange }: SongFilterProps) {
         Filter & Search Songs
       </Typography>
       
-      <Grid container spacing={2} alignItems="center">
-        <Grid item xs={12} sm={3}>
+      <Box sx={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: 2, 
+        alignItems: 'center',
+        '@media (max-width: 600px)': {
+          flexDirection: 'column',
+          alignItems: 'stretch'
+        }
+      }}>
+        <Box sx={{ flex: '1 1 300px', minWidth: '200px' }}>
           <TextField
             fullWidth
             size="small"
@@ -136,9 +145,9 @@ export default function SongFilter({ onFilterChange }: SongFilterProps) {
               },
             }}
           />
-        </Grid>
+        </Box>
         
-        <Grid item xs={12} sm={2}>
+        <Box sx={{ flex: '0 1 150px', minWidth: '120px' }}>
           <FormControl 
             fullWidth 
             size="small"
@@ -174,9 +183,9 @@ export default function SongFilter({ onFilterChange }: SongFilterProps) {
               ))}
             </Select>
           </FormControl>
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} sm={2}>
+        <Box sx={{ flex: '0 1 150px', minWidth: '120px' }}>
           <FormControl 
             fullWidth 
             size="small"
@@ -212,9 +221,9 @@ export default function SongFilter({ onFilterChange }: SongFilterProps) {
               ))}
             </Select>
           </FormControl>
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} sm={2}>
+        <Box sx={{ flex: '0 1 150px', minWidth: '120px' }}>
           <FormControl 
             fullWidth 
             size="small"
@@ -250,54 +259,52 @@ export default function SongFilter({ onFilterChange }: SongFilterProps) {
               ))}
             </Select>
           </FormControl>
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} sm={3}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: 'flex-end' }}>
-            {activeFiltersCount > 0 && (
-              <>
-                <Chip
-                  label={`${activeFiltersCount} filter${activeFiltersCount > 1 ? 's' : ''} active`}
-                  size="small"
-                  sx={{
-                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                    color: '#667eea',
-                    fontWeight: 500,
-                    border: '1px solid rgba(102, 126, 234, 0.3)'
-                  }}
-                />
-                <Chip
-                  label="Clear All"
-                  size="small"
-                  onClick={clearFilters}
-                  onDelete={clearFilters}
-                  deleteIcon={<ClearIcon />}
-                  sx={{
-                    backgroundColor: 'rgba(229, 62, 62, 0.1)',
+        <Box sx={{ flex: '1 1 200px', display: 'flex', alignItems: 'center', gap: 1, justifyContent: 'flex-end' }}>
+          {activeFiltersCount > 0 && (
+            <>
+              <Chip
+                label={`${activeFiltersCount} filter${activeFiltersCount > 1 ? 's' : ''} active`}
+                size="small"
+                sx={{
+                  backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                  color: '#667eea',
+                  fontWeight: 500,
+                  border: '1px solid rgba(102, 126, 234, 0.3)'
+                }}
+              />
+              <Chip
+                label="Clear All"
+                size="small"
+                onClick={clearFilters}
+                onDelete={clearFilters}
+                deleteIcon={<ClearIcon />}
+                sx={{
+                  backgroundColor: 'rgba(229, 62, 62, 0.1)',
+                  color: '#e53e3e',
+                  fontWeight: 500,
+                  border: '1px solid rgba(229, 62, 62, 0.3)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(229, 62, 62, 0.2)',
+                  },
+                  '& .MuiChip-deleteIcon': {
                     color: '#e53e3e',
-                    fontWeight: 500,
-                    border: '1px solid rgba(229, 62, 62, 0.3)',
                     '&:hover': {
-                      backgroundColor: 'rgba(229, 62, 62, 0.2)',
-                    },
-                    '& .MuiChip-deleteIcon': {
-                      color: '#e53e3e',
-                      '&:hover': {
-                        color: '#c53030',
-                      }
+                      color: '#c53030',
                     }
-                  }}
-                />
-              </>
-            )}
-            {activeFiltersCount === 0 && (
-              <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
-                No active filters
-              </Typography>
-            )}
-          </Box>
-        </Grid>
-      </Grid>
+                  }
+                }}
+              />
+            </>
+          )}
+          {activeFiltersCount === 0 && (
+            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
+              No active filters
+            </Typography>
+          )}
+        </Box>
+      </Box>
     </Paper>
   );
 }

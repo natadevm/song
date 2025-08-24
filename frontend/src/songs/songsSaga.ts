@@ -17,7 +17,7 @@ import {
 
 // --- Worker sagas ---
 
-function* handleFetchSongs() {
+function* handleFetchSongs(): Generator<any, void, any> {
   try {
     const response = yield call(songsApi.getAll);
     yield put(fetchSongsSuccess(response.data));
@@ -26,7 +26,7 @@ function* handleFetchSongs() {
   }
 }
 
-function* handleFetchStats() {
+function* handleFetchStats(): Generator<any, void, any> {
   try {
     const response = yield call(songsApi.stats);
     yield put(fetchStatsSuccess(response.data));
@@ -35,7 +35,7 @@ function* handleFetchStats() {
   }
 }
 
-function* handleAddSong(action: { type: string; payload: Song }) {
+function* handleAddSong(action: { type: string; payload: Song }): Generator<any, void, any> {
   try {
     const response = yield call(songsApi.create, action.payload);
     yield put(addSongSuccess(response.data));
@@ -45,7 +45,7 @@ function* handleAddSong(action: { type: string; payload: Song }) {
   }
 }
 
-function* handleUpdateSong(action: { type: string; payload: { id: string; song: Song } }) {
+function* handleUpdateSong(action: { type: string; payload: { id: string; song: Song } }): Generator<any, void, any> {
   try {
     const response = yield call(songsApi.update, action.payload.id, action.payload.song);
     yield put(updateSongSuccess(response.data));
@@ -55,7 +55,7 @@ function* handleUpdateSong(action: { type: string; payload: { id: string; song: 
   }
 }
 
-function* handleDeleteSong(action: { type: string; payload: string }) {
+function* handleDeleteSong(action: { type: string; payload: string }): Generator<any, void, any> {
   try {
     yield call(songsApi.remove, action.payload);
     yield put(deleteSongSuccess(action.payload));

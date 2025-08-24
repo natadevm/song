@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, TextField, Button, Paper, Typography, Grid } from "@mui/material";
+import { Box, TextField, Button, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import AddIcon from "@mui/icons-material/Add";
 import { useAppDispatch } from "../common/hooks";
@@ -90,50 +90,47 @@ export default function SongForm() {
       </Typography>
       
       <Box component="form" onSubmit={handleSubmit}>
-        <Grid container spacing={2} sx={{ mb: 3 }}>
-          <Grid item xs={12} sm={6}>
-            <StyledTextField
-              fullWidth
-              label="Song Title"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              required
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <StyledTextField
-              fullWidth
-              label="Artist"
-              name="artist"
-              value={formData.artist}
-              onChange={handleChange}
-              required
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <StyledTextField
-              fullWidth
-              label="Album"
-              name="album"
-              value={formData.album}
-              onChange={handleChange}
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <StyledTextField
-              fullWidth
-              label="Genre"
-              name="gener"
-              value={formData.gener}
-              onChange={handleChange}
-              variant="outlined"
-            />
-          </Grid>
-        </Grid>
+        <Box sx={{ 
+          display: 'grid', 
+          gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, 
+          gap: 2, 
+          mb: 3 
+        }}>
+          <StyledTextField
+            fullWidth
+            label="Song Title"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            required
+            variant="outlined"
+          />
+          <StyledTextField
+            fullWidth
+            label="Artist"
+            name="artist"
+            value={formData.artist}
+            onChange={handleChange}
+            required
+            variant="outlined"
+          />
+          <StyledTextField
+            fullWidth
+            label="Album"
+            name="album"
+            value={formData.album}
+            onChange={handleChange}
+            variant="outlined"
+          />
+          <StyledTextField
+            fullWidth
+            label="Genre"
+            name="gener"
+            value={formData.gener}
+            onChange={handleChange}
+            variant="outlined"
+          />
+        </Box>
         
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <StyledButton 
