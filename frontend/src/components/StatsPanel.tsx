@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import {
   Box,
-  Paper,
   Typography,
   Card,
   CardContent,
