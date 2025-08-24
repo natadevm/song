@@ -1,8 +1,19 @@
 import { useEffect } from "react";
-import { 
-  Grid, Card, CardContent, Typography, Box, 
-  Table, TableBody, TableCell, TableContainer, 
-  TableHead, TableRow, Divider, Chip, Avatar
+import {
+  Box,
+  Paper,
+  Typography,
+  Card,
+  CardContent,
+  Avatar,
+  Chip,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Divider,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import BarChartIcon from "@mui/icons-material/BarChart";
