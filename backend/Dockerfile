@@ -3,10 +3,12 @@ FROM node:22
 WORKDIR /app
 
 COPY package*.json ./
+
 RUN npm install --only=production
 
 COPY . .
 
 EXPOSE 5000
 
+# Start server
 CMD ["node", "server.js"]

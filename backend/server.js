@@ -16,6 +16,9 @@ app.use(express.json()); // accept JSON from React frontend
 
 // Routes
 app.use("/api/songs", songRoutes);
+app.get("/",(req,res)=>{
+  res.send("working docker")
+})
 
 
 // Start server

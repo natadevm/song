@@ -12,5 +12,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "5173:80" # frontend runs inside container on port 80, exposed as 5173 locally
+      - "5173:80" # container: 80 → local: 5173
+    env_file:
+      - ./frontend/.env
     restart: unless-stopped
